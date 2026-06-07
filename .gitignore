@@ -22,8 +22,9 @@ CLAUDE.md
 *.xlsx
 *.zip
 
-# Ignorando guias de estudo
+# Ignorando guias de estudo e o roteiro do YouTube (serão mantidos localmente, mas não versionados)
 study_guides/
+roteiro_youtube/
 
 # Requirements completo do ambiente de dev (será substituído por versão enxuta no final)
 requirements.txt
