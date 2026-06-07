@@ -108,9 +108,30 @@ class CVMLakeBuilder:
         host = os.getenv("DB_HOST")
         port = os.getenv("DB_PORT")
         dbname = os.getenv("DB_NAME")
+
+        self._ensure_database_exists(user, password, host, port, dbname)
+
         return create_engine(
             f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
         )
+
+    def _ensure_database_exists(self, user, password, host, port, dbname):
+        """Cria o banco de dados se ainda não existir, conectando ao banco padrão 'postgres'."""
+        admin_engine = create_engine(
+            f"postgresql+psycopg2://{user}:{password}@{host}:{port}/postgres",
+            isolation_level="AUTOCOMMIT",
+        )
+        with admin_engine.connect() as conn:
+            exists = conn.execute(
+                text("SELECT 1 FROM pg_database WHERE datname = :db"),
+                {"db": dbname},
+            ).fetchone()
+            if not exists:
+                conn.execute(text(f'CREATE DATABASE "{dbname}"'))
+                logger.info("Banco de dados '%s' criado com sucesso.", dbname)
+            else:
+                logger.info("Banco de dados '%s' já existe.", dbname)
+        admin_engine.dispose()
 
     # ------------------------------------------------------------------
     # Infraestrutura de banco
@@ -130,10 +151,9 @@ class CVMLakeBuilder:
             schema_drift_detectado BOOLEAN DEFAULT FALSE
         );
         """
-        with self.engine.connect() as conn:
+        with self.engine.begin() as conn:
             conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {self.SCHEMA};"))
             conn.execute(text(create_log_query))
-            conn.commit()
         logger.info("Setup: tabela de logs '%s' verificada.", self.log_table)
 
     def _log(self, nivel: str, ano: int, arquivo: str, tabela: str, msg: str, drift: bool = False):
@@ -156,9 +176,8 @@ class CVMLakeBuilder:
             VALUES (:niv, :ano, :arq, :tab, :msg, :drift, NOW())
         """)
         try:
-            with self.engine.connect() as conn:
+            with self.engine.begin() as conn:
                 conn.execute(query, {"niv": nivel, "ano": ano, "arq": arquivo, "tab": tabela, "msg": msg, "drift": drift})
-                conn.commit()
         except Exception as e:
             logger.error("Falha ao gravar log no banco: %s", e)
 
