@@ -1,0 +1,29 @@
+# Ignorando pasta .venv
+.venv/
+
+# Jupyter e Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Variáveis de Ambiente (CRÍTICO: Protege sua senha)
+.env
+
+# Remove o contexto do CLAUDE.md
+CLAUDE.md
+.claude
+
+# VS Code
+.vscode/
+
+# Dados locais (Para não pesar o repositório com CSVs gigantes)
+*.csv
+*.xlsx
+*.zip
+
+# Ignorando guias de estudo
+study_guides/
+
+# Requirements completo do ambiente de dev (será substituído por versão enxuta no final)
+requirements.txt
