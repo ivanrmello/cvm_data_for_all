@@ -20,6 +20,25 @@ A metodologia segue o processo de **Knowledge Discovery in Databases (KDD)** est
 
 ---
 
+## Videoaulas
+
+Todo o passo a passo do projeto está na playlist do YouTube: **[Extraindo +50 GB de Dados da CVM com Python](https://www.youtube.com/playlist?list=PLfgmqdfMYUI8)**.
+
+| Aula | Vídeo |
+|---|---|
+| 01 | [Visão Geral do Projeto](https://www.youtube.com/watch?v=KU6KwB5Rtmo&list=PLfgmqdfMYUI8) |
+| 02 | [Arquitetura Medalhão na prática: Camadas Bronze, Silver e Gold](https://www.youtube.com/watch?v=gmoMZCiSUNE&list=PLfgmqdfMYUI8) |
+| 03.1 | [Como instalar o Python no Windows](https://www.youtube.com/watch?v=SoCCatyjfTs&list=PLfgmqdfMYUI8) |
+| 03.2 | [Como instalar o PostgreSQL no Windows](https://www.youtube.com/watch?v=vp-d358yzaw&list=PLfgmqdfMYUI8) |
+| 03.3 | [Como instalar e configurar o DBeaver](https://www.youtube.com/watch?v=GCd3HD2U7fM&list=PLfgmqdfMYUI8) |
+| 03.4 | [Como instalar o Git no Windows](https://www.youtube.com/watch?v=8kRD_2SZylA&list=PLfgmqdfMYUI8) |
+| 03.5 | [Criando sua conta no GitHub](https://www.youtube.com/watch?v=vPnpCwS0xMA&list=PLfgmqdfMYUI8) |
+| 04 | [Clonando o projeto do GitHub](https://www.youtube.com/watch?v=VUtFbshHQkY&list=PLfgmqdfMYUI8) |
+| 05 | [Ambiente virtual (venv) e dependências do projeto](https://www.youtube.com/watch?v=pyJ_ptXwSpQ&list=PLfgmqdfMYUI8) |
+| 06 | [Coletando os dados da CVM para o PostgreSQL (Camada Bronze)](https://www.youtube.com/watch?v=YFCKoKDO7ao&list=PLfgmqdfMYUI8) |
+
+---
+
 ## Pré-requisitos
 
 Antes de começar, você precisará instalar as ferramentas abaixo. Cada uma tem um vídeo explicando a instalação passo a passo.
@@ -27,7 +46,7 @@ Antes de começar, você precisará instalar as ferramentas abaixo. Cada uma tem
 ### 1. Python
 
 <!-- VIDEO: instalacao-python -->
-> Em breve: vídeo ensinando a instalar o Python no Windows.
+> 🎥 **Aula 03.1:** [Como instalar o Python no Windows](https://www.youtube.com/watch?v=SoCCatyjfTs&list=PLfgmqdfMYUI8)
 
 Baixe em: https://www.python.org/downloads/
 
@@ -38,7 +57,7 @@ Baixe em: https://www.python.org/downloads/
 ### 2. PostgreSQL
 
 <!-- VIDEO: instalacao-postgresql -->
-> Em breve: vídeo ensinando a instalar o PostgreSQL no Windows.
+> 🎥 **Aula 03.2:** [Como instalar o PostgreSQL no Windows](https://www.youtube.com/watch?v=vp-d358yzaw&list=PLfgmqdfMYUI8)
 
 Baixe em: https://www.postgresql.org/download/
 
@@ -49,7 +68,7 @@ Baixe em: https://www.postgresql.org/download/
 ### 3. DBeaver
 
 <!-- VIDEO: instalacao-dbeaver -->
-> Em breve: vídeo ensinando a instalar e configurar o DBeaver.
+> 🎥 **Aula 03.3:** [Como instalar e configurar o DBeaver](https://www.youtube.com/watch?v=GCd3HD2U7fM&list=PLfgmqdfMYUI8)
 
 Baixe em: https://dbeaver.io/download/
 
@@ -58,7 +77,7 @@ Baixe em: https://dbeaver.io/download/
 ### 4. Git for Windows
 
 <!-- VIDEO: instalacao-git -->
-> Em breve: vídeo ensinando a instalar o Git no Windows.
+> 🎥 **Aula 03.4:** [Como instalar o Git no Windows](https://www.youtube.com/watch?v=8kRD_2SZylA&list=PLfgmqdfMYUI8)
 
 Baixe em: https://git-scm.com/download/win
 
@@ -67,7 +86,7 @@ Baixe em: https://git-scm.com/download/win
 ### 5. Conta no GitHub
 
 <!-- VIDEO: criacao-github -->
-> Em breve: vídeo ensinando a criar uma conta no GitHub.
+> 🎥 **Aula 03.5:** [Criando sua conta no GitHub](https://www.youtube.com/watch?v=vPnpCwS0xMA&list=PLfgmqdfMYUI8)
 
 Crie sua conta em: https://github.com
 
@@ -85,7 +104,7 @@ cd cvm_data_for_all
 ```
 
 <!-- VIDEO: clone-repositorio -->
-> Em breve: vídeo ensinando a clonar o repositório e navegar até a pasta.
+> 🎥 **Aula 04:** [Clonando o projeto do GitHub](https://www.youtube.com/watch?v=VUtFbshHQkY&list=PLfgmqdfMYUI8)
 
 ---
 
@@ -98,7 +117,7 @@ pip install -r requirements.txt -q
 ```
 
 <!-- VIDEO: criacao-venv -->
-> Em breve: vídeo ensinando a criar o ambiente virtual e instalar os pacotes.
+> 🎥 **Aula 05:** [Ambiente virtual (venv) e dependências do projeto](https://www.youtube.com/watch?v=pyJ_ptXwSpQ&list=PLfgmqdfMYUI8)
 
 ---
 
@@ -152,7 +171,7 @@ python bronze/cvm_bronze.py --dataset CAD
 ```
 
 <!-- VIDEO: rodando-bronze -->
-> Em breve: vídeo demonstrando a execução da camada Bronze.
+> 🎥 **Aula 06:** [Coletando os dados da CVM para o PostgreSQL (Camada Bronze)](https://www.youtube.com/watch?v=YFCKoKDO7ao&list=PLfgmqdfMYUI8)
 
 > **Idempotência:** o pipeline é seguro para ser rodado mais de uma vez — arquivos já processados são automaticamente ignorados.
 
